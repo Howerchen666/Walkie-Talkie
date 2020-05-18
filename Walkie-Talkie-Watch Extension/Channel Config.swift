@@ -2,7 +2,7 @@
 //  Channel Config.swift
 //  Walkie-Talkie
 //
-//  Created by Hower Chen on 2020/4/28.
+//  Created by Hower Chen on 2020/5/6.
 //  Copyright © 2020 Hower Chen. All rights reserved.
 //
 
@@ -13,37 +13,30 @@ struct Channel_Config: View {
     @Binding var room: String
     
     var body: some View {
-        ZStack {
-            //ignoring safe area to fill screen
-            Color("background").edgesIgnoringSafeArea(.all)
             VStack {
-                Spacer()
                 HStack {
-                    TextField("Enter Channel Number", text:$room)
-                        .modifier(DefaultTextFieldStyle())
-                        .keyboardType(.default)
+                    TextField("Channel", text:$room)
+                    .modifier(DefaultTextFieldStyle())
                 }
-                .padding(.horizontal, 21.0)
-                
-                
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
                 Button(action: {
                     //change to ContentView.Swift
-                    if self.room != "" {
-                        self.walkieTalkie = true
-                    }
+                    self.walkieTalkie = true
                 }) {
                     Text("Go!")
                 }
-                .padding(.top, 80.0)
                 Spacer()
             }
-        }
     }
 }
 
 struct DefaultTextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
-        content.textFieldStyle(RoundedBorderTextFieldStyle())
+        content
     }
 }
 

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D241CD12459BD1800A21A72 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D241CD02459BD1800A21A72 /* About.swift */; };
 		8D26E1902457EBFE00DED49A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26E18F2457EBFE00DED49A /* AppDelegate.swift */; };
 		8D26E1922457EBFE00DED49A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26E1912457EBFE00DED49A /* SceneDelegate.swift */; };
 		8D26E1942457EBFE00DED49A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26E1932457EBFE00DED49A /* ContentView.swift */; };
@@ -15,9 +16,65 @@
 		8D26E19C2457EC0000DED49A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D26E19A2457EC0000DED49A /* LaunchScreen.storyboard */; };
 		8D26E1A82458268000DED49A /* Channel Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26E1A72458268000DED49A /* Channel Config.swift */; };
 		8D26E1AA2458282400DED49A /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D26E1A92458282400DED49A /* Main.swift */; };
+		8D5E9A2B246292DC000D0134 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D5E9A29246292DC000D0134 /* Interface.storyboard */; };
+		8D5E9A2D246292E1000D0134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5E9A2C246292E1000D0134 /* Assets.xcassets */; };
+		8D5E9A34246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8D5E9A33246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D5E9A39246292E1000D0134 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9A38246292E1000D0134 /* ContentView.swift */; };
+		8D5E9A3B246292E1000D0134 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9A3A246292E1000D0134 /* HostingController.swift */; };
+		8D5E9A3D246292E2000D0134 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9A3C246292E1000D0134 /* ExtensionDelegate.swift */; };
+		8D5E9A3F246292E2000D0134 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9A3E246292E2000D0134 /* NotificationController.swift */; };
+		8D5E9A41246292E2000D0134 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D5E9A40246292E2000D0134 /* NotificationView.swift */; };
+		8D5E9A43246292E3000D0134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5E9A42246292E3000D0134 /* Assets.xcassets */; };
+		8D5E9A46246292E3000D0134 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D5E9A45246292E3000D0134 /* Preview Assets.xcassets */; };
+		8D5E9A4B246292E3000D0134 /* Walkie-Talkie-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 8D5E9A27246292DC000D0134 /* Walkie-Talkie-Watch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8DEE17562462B285009B3DE7 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE17552462B285009B3DE7 /* Main.swift */; };
+		8DEE17592462B326009B3DE7 /* Channel Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEE17572462B318009B3DE7 /* Channel Config.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8D5E9A35246292E1000D0134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D26E1842457EBFE00DED49A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5E9A32246292E1000D0134;
+			remoteInfo = "Walkie-Talkie-Watch Extension";
+		};
+		8D5E9A49246292E3000D0134 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D26E1842457EBFE00DED49A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5E9A26246292DC000D0134;
+			remoteInfo = "Walkie-Talkie-Watch";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D5E9A4F246292E3000D0134 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8D5E9A34246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D5E9A53246292E3000D0134 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				8D5E9A4B246292E3000D0134 /* Walkie-Talkie-Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8D241CD02459BD1800A21A72 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		8D26E18C2457EBFE00DED49A /* Walkie-Talkie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walkie-Talkie.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D26E18F2457EBFE00DED49A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D26E1912457EBFE00DED49A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,10 +85,34 @@
 		8D26E19D2457EC0000DED49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D26E1A72458268000DED49A /* Channel Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel Config.swift"; sourceTree = "<group>"; };
 		8D26E1A92458282400DED49A /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		8D5E9A27246292DC000D0134 /* Walkie-Talkie-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Walkie-Talkie-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5E9A2A246292DC000D0134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		8D5E9A2C246292E1000D0134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D5E9A2E246292E1000D0134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D5E9A33246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Walkie-Talkie-Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D5E9A38246292E1000D0134 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8D5E9A3A246292E1000D0134 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		8D5E9A3C246292E1000D0134 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		8D5E9A3E246292E2000D0134 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8D5E9A40246292E2000D0134 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		8D5E9A42246292E3000D0134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D5E9A45246292E3000D0134 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D5E9A47246292E3000D0134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D5E9A48246292E3000D0134 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		8D5E9A5424629371000D0134 /* Walkie-Talkie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Walkie-Talkie.entitlements"; sourceTree = "<group>"; };
+		8DEE17552462B285009B3DE7 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		8DEE17572462B318009B3DE7 /* Channel Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Channel Config.swift"; path = "Walkie-Talkie-Watch Extension/Channel Config.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8D26E1892457EBFE00DED49A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D5E9A30246292E1000D0134 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				8D26E18E2457EBFE00DED49A /* Walkie-Talkie */,
+				8D5E9A28246292DC000D0134 /* Walkie-Talkie-Watch */,
+				8D5E9A37246292E1000D0134 /* Walkie-Talkie-Watch Extension */,
 				8D26E18D2457EBFE00DED49A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				8D26E18C2457EBFE00DED49A /* Walkie-Talkie.app */,
+				8D5E9A27246292DC000D0134 /* Walkie-Talkie-Watch.app */,
+				8D5E9A33246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,10 +145,12 @@
 		8D26E18E2457EBFE00DED49A /* Walkie-Talkie */ = {
 			isa = PBXGroup;
 			children = (
+				8D5E9A5424629371000D0134 /* Walkie-Talkie.entitlements */,
 				8D26E18F2457EBFE00DED49A /* AppDelegate.swift */,
 				8D26E1912457EBFE00DED49A /* SceneDelegate.swift */,
 				8D26E1932457EBFE00DED49A /* ContentView.swift */,
 				8D26E1A72458268000DED49A /* Channel Config.swift */,
+				8D241CD02459BD1800A21A72 /* About.swift */,
 				8D26E1A92458282400DED49A /* Main.swift */,
 				8D26E1952457EC0000DED49A /* Assets.xcassets */,
 				8D26E19A2457EC0000DED49A /* LaunchScreen.storyboard */,
@@ -81,6 +168,42 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8D5E9A28246292DC000D0134 /* Walkie-Talkie-Watch */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E9A29246292DC000D0134 /* Interface.storyboard */,
+				8D5E9A2C246292E1000D0134 /* Assets.xcassets */,
+				8D5E9A2E246292E1000D0134 /* Info.plist */,
+			);
+			path = "Walkie-Talkie-Watch";
+			sourceTree = "<group>";
+		};
+		8D5E9A37246292E1000D0134 /* Walkie-Talkie-Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E9A38246292E1000D0134 /* ContentView.swift */,
+				8D5E9A3A246292E1000D0134 /* HostingController.swift */,
+				8D5E9A3C246292E1000D0134 /* ExtensionDelegate.swift */,
+				8D5E9A3E246292E2000D0134 /* NotificationController.swift */,
+				8D5E9A40246292E2000D0134 /* NotificationView.swift */,
+				8D5E9A42246292E3000D0134 /* Assets.xcassets */,
+				8D5E9A47246292E3000D0134 /* Info.plist */,
+				8D5E9A48246292E3000D0134 /* PushNotificationPayload.apns */,
+				8DEE17572462B318009B3DE7 /* Channel Config.swift */,
+				8DEE17552462B285009B3DE7 /* Main.swift */,
+				8D5E9A44246292E3000D0134 /* Preview Content */,
+			);
+			path = "Walkie-Talkie-Watch Extension";
+			sourceTree = "<group>";
+		};
+		8D5E9A44246292E3000D0134 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8D5E9A45246292E3000D0134 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,15 +214,51 @@
 				8D26E1882457EBFE00DED49A /* Sources */,
 				8D26E1892457EBFE00DED49A /* Frameworks */,
 				8D26E18A2457EBFE00DED49A /* Resources */,
+				8D5E9A53246292E3000D0134 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D5E9A4A246292E3000D0134 /* PBXTargetDependency */,
 			);
 			name = "Walkie-Talkie";
 			productName = "Walkie-Talkie";
 			productReference = 8D26E18C2457EBFE00DED49A /* Walkie-Talkie.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8D5E9A26246292DC000D0134 /* Walkie-Talkie-Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D5E9A50246292E3000D0134 /* Build configuration list for PBXNativeTarget "Walkie-Talkie-Watch" */;
+			buildPhases = (
+				8D5E9A25246292DC000D0134 /* Resources */,
+				8D5E9A4F246292E3000D0134 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8D5E9A36246292E1000D0134 /* PBXTargetDependency */,
+			);
+			name = "Walkie-Talkie-Watch";
+			productName = "Walkie-Talkie-Watch";
+			productReference = 8D5E9A27246292DC000D0134 /* Walkie-Talkie-Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		8D5E9A32246292E1000D0134 /* Walkie-Talkie-Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D5E9A4C246292E3000D0134 /* Build configuration list for PBXNativeTarget "Walkie-Talkie-Watch Extension" */;
+			buildPhases = (
+				8D5E9A2F246292E1000D0134 /* Sources */,
+				8D5E9A30246292E1000D0134 /* Frameworks */,
+				8D5E9A31246292E1000D0134 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Walkie-Talkie-Watch Extension";
+			productName = "Walkie-Talkie-Watch Extension";
+			productReference = 8D5E9A33246292E1000D0134 /* Walkie-Talkie-Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -112,6 +271,12 @@
 				ORGANIZATIONNAME = "Hower Chen";
 				TargetAttributes = {
 					8D26E18B2457EBFE00DED49A = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					8D5E9A26246292DC000D0134 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					8D5E9A32246292E1000D0134 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
@@ -130,6 +295,8 @@
 			projectRoot = "";
 			targets = (
 				8D26E18B2457EBFE00DED49A /* Walkie-Talkie */,
+				8D5E9A26246292DC000D0134 /* Walkie-Talkie-Watch */,
+				8D5E9A32246292E1000D0134 /* Walkie-Talkie-Watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -145,6 +312,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D5E9A25246292DC000D0134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5E9A2D246292E1000D0134 /* Assets.xcassets in Resources */,
+				8D5E9A2B246292DC000D0134 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D5E9A31246292E1000D0134 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5E9A46246292E3000D0134 /* Preview Assets.xcassets in Resources */,
+				8D5E9A43246292E3000D0134 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -153,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D26E1902457EBFE00DED49A /* AppDelegate.swift in Sources */,
+				8D241CD12459BD1800A21A72 /* About.swift in Sources */,
 				8D26E1922457EBFE00DED49A /* SceneDelegate.swift in Sources */,
 				8D26E1A82458268000DED49A /* Channel Config.swift in Sources */,
 				8D26E1942457EBFE00DED49A /* ContentView.swift in Sources */,
@@ -160,7 +346,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D5E9A2F246292E1000D0134 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DEE17562462B285009B3DE7 /* Main.swift in Sources */,
+				8D5E9A3B246292E1000D0134 /* HostingController.swift in Sources */,
+				8DEE17592462B326009B3DE7 /* Channel Config.swift in Sources */,
+				8D5E9A39246292E1000D0134 /* ContentView.swift in Sources */,
+				8D5E9A3F246292E2000D0134 /* NotificationController.swift in Sources */,
+				8D5E9A3D246292E2000D0134 /* ExtensionDelegate.swift in Sources */,
+				8D5E9A41246292E2000D0134 /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D5E9A36246292E1000D0134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5E9A32246292E1000D0134 /* Walkie-Talkie-Watch Extension */;
+			targetProxy = 8D5E9A35246292E1000D0134 /* PBXContainerItemProxy */;
+		};
+		8D5E9A4A246292E3000D0134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = 8D5E9A26246292DC000D0134 /* Walkie-Talkie-Watch */;
+			targetProxy = 8D5E9A49246292E3000D0134 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		8D26E19A2457EC0000DED49A /* LaunchScreen.storyboard */ = {
@@ -169,6 +383,14 @@
 				8D26E19B2457EC0000DED49A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8D5E9A29246292DC000D0134 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8D5E9A2A246292DC000D0134 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -224,7 +446,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,17 +514,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Walkie-Talkie/Walkie-Talkie.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Walkie-Talkie/Preview Content\"";
 				DEVELOPMENT_TEAM = BUBRQTXMEC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Walkie-Talkie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -312,19 +537,108 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Walkie-Talkie/Walkie-Talkie.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Walkie-Talkie/Preview Content\"";
 				DEVELOPMENT_TEAM = BUBRQTXMEC;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Walkie-Talkie/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8D5E9A4D246292E3000D0134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Walkie-Talkie-Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = BUBRQTXMEC;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Walkie-Talkie-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		8D5E9A4E246292E3000D0134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Walkie-Talkie-Watch Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = BUBRQTXMEC;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Walkie-Talkie-Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Release;
+		};
+		8D5E9A51246292E3000D0134 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BUBRQTXMEC;
+				IBSC_MODULE = Walkie_Talkie_Watch_Extension;
+				INFOPLIST_FILE = "Walkie-Talkie-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
+			};
+			name = Debug;
+		};
+		8D5E9A52246292E3000D0134 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BUBRQTXMEC;
+				IBSC_MODULE = Walkie_Talkie_Watch_Extension;
+				INFOPLIST_FILE = "Walkie-Talkie-Watch/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.howerchen.Walkie-Talkie.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 6.2;
 			};
 			name = Release;
 		};
@@ -345,6 +659,24 @@
 			buildConfigurations = (
 				8D26E1A12457EC0000DED49A /* Debug */,
 				8D26E1A22457EC0000DED49A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D5E9A4C246292E3000D0134 /* Build configuration list for PBXNativeTarget "Walkie-Talkie-Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D5E9A4D246292E3000D0134 /* Debug */,
+				8D5E9A4E246292E3000D0134 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D5E9A50246292E3000D0134 /* Build configuration list for PBXNativeTarget "Walkie-Talkie-Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D5E9A51246292E3000D0134 /* Debug */,
+				8D5E9A52246292E3000D0134 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

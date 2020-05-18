@@ -10,21 +10,25 @@ import SwiftUI
 
 struct main: View {
     @State var walkieTalkie: Bool = false
+    @State var room: String = ""
     var body: some View {
         VStack {
+            //show content view
             if walkieTalkie == true{
-                ContentView(walkieTalkie: $walkieTalkie)
+                ContentView(walkieTalkie: $walkieTalkie, room: self.room)
             }
-            else{
-                Channel_Config(walkieTalkie: $walkieTalkie)
+            //show channel config
+            if walkieTalkie == false{
+                Channel_Config(walkieTalkie: $walkieTalkie, room: $room)
             }
         }
+            //adding animation
         .animation(.default)
     }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        main()
+        main( room:(""))
     }
 }

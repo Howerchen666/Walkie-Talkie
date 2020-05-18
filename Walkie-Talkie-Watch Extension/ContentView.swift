@@ -20,68 +20,36 @@ struct ContentView: View {
     var room: String
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                //changing the backgound color to yellow
-                Color("background")
-                    .edgesIgnoringSafeArea(.all)
-                
-                VStack {
-                    //status
-                    HStack {
-                        Text("Server:walkietalkie.howerchen.cn")
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    HStack {
-                        Text("Channel:\(room)")
-                            .padding(.leading)
-                        Spacer()
-                    }
-                    
-                    
-                    Spacer()
-                    //button
-                    Image(image)
-                        .resizable()
-                        .frame(width:186,height: 186)
-                        .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({_ in
-                            if self.buttonState == false {
-                                self.start()
-                                self.image = "buttonPress"
-                            }
-                            self.buttonState = true
-                        }).onEnded({ _ in
-                            self.finished()
-                            self.buttonState = false
-                            self.image = "button"
-                        }))
-                    Spacer()
-                    //leave room button
-                    Button(action: {
-                        self.webSocketTask.cancel(with: .normalClosure, reason: nil)
-                        self.walkieTalkie = false
-                    }) {
-                        Text("Leave Room")
-                            .foregroundColor(Color.red)
-                    }
-                    .padding(.bottom, 150)
-                    
-                    NavigationLink(destination: About()) {
-                        Text("About")
-                    }
-                    .padding(.bottom)
-                }
-                .padding(.top, 14.0)
-                .onAppear{
-                    self.handler.setupRecorder()
-                    self.connectWebSocket()
-                }
-                .navigationBarTitle("Walkie Talkie", displayMode: .inline)
+        
+        VStack {
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(.white)
+                .frame(width: 80.0, height: 80.0)
+                .overlay(Image(systemName: "phone.fill.arrow.up.right").foregroundColor(.black)
+                    .font(.title)
+                    .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({_ in
+                        if self.buttonState == false {
+                            self.start()
+                        }
+                        self.buttonState = true
+                    }).onEnded({ _ in
+                        self.finished()
+                        self.buttonState = false
+                    })))
+            
+            Spacer()
+            Button(action: {
+                self.webSocketTask.cancel(with: .normalClosure, reason: nil)
+                self.walkieTalkie = false
+            }) {
+                Text("Leave Room")
+                    .foregroundColor(.red)
             }
+        }.onAppear {
+            self.connectWebSocket()
+            self.handler.setupRecorder()
+            self.handler.setupPlayer()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarHidden(true)
     }
     
     func start() {
@@ -93,6 +61,7 @@ struct ContentView: View {
         print("Finished")
         self.handler.stopRecording()
         let data = try? Data(contentsOf: handler.getDocumentsDirectory().appendingPathComponent(handler.fileName))
+        //print(data)
         if data != nil{
             sendDataToWS(data!)
         }
@@ -100,7 +69,7 @@ struct ContentView: View {
     
     func connectWebSocket() {
         // WebSocket's URL
-        let wsURLStr = "ws://walkietalkie.howerchen.cn:8081/\(room)"
+        let wsURLStr = "ws://walkietalkie.howerchen.cn:900/\(room)"
         let wsURL = URL(string: wsURLStr)!
         
         // Create webSocketTask
@@ -113,12 +82,12 @@ struct ContentView: View {
     
     func sendDataToWS(_ data: Data) {
         print("Sending data: \(data)")
-        // create message
+        // 制造一个message
         let message = URLSessionWebSocketTask.Message.data(data)
-        // send message
+        // 发送信息
         webSocketTask.send(message) { error in
             if let error = error {
-                // failed
+                // 出错误了
                 print("Error sending data: \(error)")
             }
         }
@@ -127,20 +96,20 @@ struct ContentView: View {
     }
     
     func receivedFromWS() {
-        // revieve message
+        // 接受消息
         webSocketTask.receive { result in
             switch result {
             case .failure(let error):
-                // failed
+                // 失败
                 print("Failed to receive message: \(error)")
             case .success(let message):
                 switch message {
                 case .string(let str):
-                    // recived
+                    // 接收到字符串
                     print("Received string: \(str)")
                 //self.updateReceiveText(str)
                 case .data(let data):
-                    // recived binary
+                    // 接收到二进制数据
                     print("Received binary: \(data)")
                     self.handler.updateReceiveData(data)
                 @unknown default:
@@ -149,10 +118,36 @@ struct ContentView: View {
                 // Close on failure, only continue when success
                 self.receivedFromWS()
             }
+            
         }
+    }
+    
+    func createChunks(for data: Data) -> [Data] {
+        var result = [Data]()
+        data.withUnsafeBytes { (u8Ptr: UnsafePointer<UInt8>) in
+            let mutRawPointer = UnsafeMutableRawPointer(mutating: u8Ptr)
+            let uploadChunkSize = 65536
+            let totalSize = data.count
+            var offset = 0
+            
+            while offset < totalSize {
+                
+                let chunkSize = offset + uploadChunkSize > totalSize ? totalSize - offset : uploadChunkSize
+                let chunk = Data(bytesNoCopy: mutRawPointer+offset, count: chunkSize, deallocator: Data.Deallocator.none)
+                offset += chunkSize
+                
+                result.append(chunk)
+            }
+        }
+        return result
     }
 }
 
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView( walkieTalkie: .constant(false), room: "")
+    }
+}
 
 //Audio recorder
 class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAudioRecorderDelegate {
@@ -171,6 +166,7 @@ class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAu
         } catch {
             print("Failed writing file!")
         }
+        
     }
     
     func getDocumentsDirectory() -> URL {
@@ -181,11 +177,10 @@ class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAu
     
     func setupRecorder() {
         let audioFilename = getDocumentsDirectory().appendingPathComponent(fileName)
-        let recordSetting = [ AVFormatIDKey : kAudioFormatAppleLossless,
-                              AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
-                              AVEncoderBitRateKey : 320000,
-                              AVNumberOfChannelsKey : 2,
-                              AVSampleRateKey : 44100.2] as [String : Any]
+        let recordSetting = [ AVFormatIDKey: Int(kAudioFormatMPEG4AAC),
+        AVSampleRateKey:44100,
+        AVNumberOfChannelsKey:1,
+        AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue] as [String : Any]
         
         do {
             soundRecorder = try AVAudioRecorder(url: audioFilename, settings: recordSetting )
@@ -204,20 +199,11 @@ class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAu
             soundPlayer.delegate = self
             soundPlayer.prepareToPlay()
             soundPlayer.volume = 1.0
-            let audioSession = AVAudioSession.sharedInstance()
-
-            do {
-                try audioSession.overrideOutputAudioPort(AVAudioSession.PortOverride.speaker)
-            } catch let error as NSError {
-                print("audioSession error: \(error.localizedDescription)")
-            }
-            
         } catch {
             print(error)
         }
     }
     
-    // Recorder
     func startRecording(){
         let session = AVAudioSession.sharedInstance()
         do {
@@ -238,7 +224,6 @@ class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAu
         
         soundRecorder.record()
     }
-    
     func stopRecording() {
         soundRecorder.stop()
     }
@@ -254,8 +239,3 @@ class WebSocketHandler: NSObject, ObservableObject, AVAudioPlayerDelegate , AVAu
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView( walkieTalkie: .constant(false), room: "")
-    }
-}
